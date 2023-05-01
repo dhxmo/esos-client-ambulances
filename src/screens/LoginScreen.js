@@ -10,8 +10,7 @@ import {
 import React, { useState } from 'react';
 import { parameters } from '../globals/style';
 import cross from '../../assets/redCross.png';
-import { Ionicons } from '@expo/vector-icons';
-import { inputContainer, btn, btn2, input, colors } from '../globals/style';
+import { inputContainer, btn, input } from '../globals/style';
 import { BACKEND_SERVER_IP } from '../config/variables';
 import DropDownPicker from 'react-native-dropdown-picker';
 import axios from 'axios';
@@ -35,20 +34,20 @@ const LogInScreen = ({ navigation }) => {
     };
 
     try {
-      const response = await axios.post(
-        `${BACKEND_SERVER_IP}/api/ambulance/login`,
-        JSON.stringify(data),
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      // const response = await axios.post(
+      //   `${BACKEND_SERVER_IP}/api/ambulance/login`,
+      //   JSON.stringify(data),
+      //   {
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //   }
+      // );
 
-      const sessionToken = response.data.token;
+      // const sessionToken = response.data.token;
 
-      await AsyncStorage.setItem('@sessionToken', sessionToken);
-      await AsyncStorage.setItem('@driverPhone', phoneNumber);
+      // await AsyncStorage.setItem('@sessionToken', sessionToken);
+      // await AsyncStorage.setItem('@driverPhone', phoneNumber);
 
       window.alert('Logged in successfully');
       return true;
